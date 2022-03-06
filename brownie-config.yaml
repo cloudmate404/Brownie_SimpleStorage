@@ -1,0 +1,5 @@
+dotenv: .env
+
+# In your yaml file, if you surround a string with a dollar sign and curly brackets, it automatically becomes an environment variable
+wallets:
+  from_key: ${PRIVATE_KEY}
