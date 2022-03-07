@@ -36,6 +36,7 @@ def deploy_simple_storage():
     print(updated_stored_value)
 
 
+# This function is used to check if we are using a development account(Ganache) or a testnet
 def get_account():
     if network.show_active() == "development":
         return accounts[0]

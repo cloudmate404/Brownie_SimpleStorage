@@ -1,3 +1,5 @@
+# When naming the file, make sure to add test to it
+
 from brownie import SimpleStorage, accounts
 
 
@@ -19,6 +21,8 @@ def test_update_storage():
     simple_storage = SimpleStorage.deploy({"from": account})
 
     # 2. Act
-    added_value = simple_storage.store(15, {"from": account})
     expected = 15
+    simple_storage.store(expected, {"from": account})
+
+    # 3. Assert
     assert expected == simple_storage.retreive()
