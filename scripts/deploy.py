@@ -26,8 +26,10 @@ def deploy_simple_storage():
     account = get_account()
     # This will deploy the solidity contract and store it in the simple_storage value
     # Anytime you want to make a state change i.e a transaction, we need to add who we are transacting from "{"from":}"
-    simple_storage = SimpleStorage.deploy({"from": account})
-    stored_value = simple_storage.retreive()
+    simple_storage = SimpleStorage.deploy({"from": account})  # deploying the contract
+    stored_value = (
+        simple_storage.retreive()
+    )  # when you want to make a call i.e no state change
     add_value = simple_storage.store(24, {"from": account})
     add_value.wait(1)
     updated_stored_value = simple_storage.retreive()
